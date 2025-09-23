@@ -1,11 +1,16 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { Header } from './components/header/header';
+import { EmailForm } from './components/email-form/email-form';
+import { Toast } from './components/toast/toast';
+// import { EmailForm } from './components/email-form/email-form';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  standalone: true,
+  imports: [Header, EmailForm,Toast],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrls: ['./app.css']
 })
 export class App {
   protected readonly title = signal('mailcraft');
