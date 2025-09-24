@@ -1,17 +1,3 @@
-// import { Component } from '@angular/core';
-
-// @Component({
-//   selector: 'app-email-form',
-//   imports: [],
-//   templateUrl: './email-form.html',
-//   styleUrl: './email-form.css'
-// })
-// export class EmailForm {
-
-// }
-
-
-
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -439,19 +425,25 @@ export class EmailForm implements OnInit, OnDestroy {
   get language() { return this.emailForm.get('language'); }
   get complexity() { return this.emailForm.get('complexity'); }
 
+  // FIXED: Select value helper method
+  hasSelectValue(controlName: string): boolean {
+    const control = this.emailForm.get(controlName);
+    return !!(control?.value && control.value !== '' && control.value !== null);
+  }
+
   // Validation helper methods for template
   isFieldInvalid(fieldName: string): boolean {
     const field = this.emailForm.get(fieldName);
     return !!(field && field.invalid && field.touched);
   }
 
-  getFieldError(fieldName: string): string {
+    getFieldError(fieldName: string): string {
     const field = this.emailForm.get(fieldName);
     if (field && field.errors && field.touched) {
       if (field.errors['required']) {
         return `${this.getFieldDisplayName(fieldName)} is required`;
       }
-            if (field.errors['minlength']) {
+      if (field.errors['minlength']) {
         return `${this.getFieldDisplayName(fieldName)} must be at least ${field.errors['minlength'].requiredLength} characters`;
       }
       if (field.errors['maxlength']) {
@@ -608,8 +600,8 @@ export class EmailForm implements OnInit, OnDestroy {
   }
 
   getToneDisplay(): string {
-  const toneCode = this.emailForm.get('tone')?.value;
-  const tone = this.tones.find(t => t.code === toneCode);
-  return tone ? tone.name : 'Professional';
+    const toneCode = this.emailForm.get('tone')?.value;
+    const tone = this.tones.find(t => t.code === toneCode);
+    return tone ? tone.name : 'Professional';
   }
 }
