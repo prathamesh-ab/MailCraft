@@ -19,21 +19,22 @@
   <title>MailCraft - AI-Powered Email Generator</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="MailCraft - AI-powered email generator for professional, reply, and formal emails">
+  <meta name="keywords" content="email generator, AI email, professional email, email assistant">
   <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   
+  <!-- Preconnect to external domains for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://gcpapi.prathameshbhanse.live">
+  
   <!-- Force HTTPS redirect -->
   <script>
-    // Force HTTPS
     if (location.protocol !== 'https:' && location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
       location.replace('https:' + window.location.href.substring(window.location.protocol.length));
     }
   </script>
-  
-  <!-- Preconnect to external domains -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://gcpapi.prathameshbhanse.live">
 </head>
 <body>
   <app-root></app-root>
